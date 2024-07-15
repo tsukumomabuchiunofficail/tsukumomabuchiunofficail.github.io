@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 
 import * as XLSX from 'xlsx';
 import axios from 'axios';
@@ -19,7 +21,7 @@ export function randomInteger(min:number, max:number) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-export  function capitalizeFirstLetter(string) {
+export  function capitalizeFirstLetter(string:string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 

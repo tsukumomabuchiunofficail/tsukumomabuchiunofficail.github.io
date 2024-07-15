@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import 'tailwindcss/tailwind.css';
 import 'daisyui/dist/full.css';
 import { FaDiscord } from "react-icons/fa";

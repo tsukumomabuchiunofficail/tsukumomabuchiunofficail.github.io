@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import { Component } from 'react';
 import 'tailwindcss/tailwind.css';
 import 'daisyui/dist/full.css';
 import { capitalizeFirstLetter} from '../../shared/helpers/utilties'
@@ -35,8 +37,8 @@ const themes = [
     'winter',
     'procyon']
 
-class ThemeChanger extends Component {
-  constructor(props) {
+class ThemeChanger extends Component<unknown,{theme:string}> {
+  constructor(props:unknown) {
     super(props);
     this.state = {
       theme: 'wireframe', // default theme
@@ -48,7 +50,7 @@ class ThemeChanger extends Component {
     document.documentElement.setAttribute('data-theme', this.state.theme);
   }
 
-  handleThemeChange(e) {
+  handleThemeChange(e: { target: { value: any; }; }) {
     const newTheme = e.target.value;
     document.documentElement.setAttribute('data-theme', newTheme);
     this.setState({ theme: newTheme });

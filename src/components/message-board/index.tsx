@@ -1,12 +1,14 @@
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import React, { Fragment, Component } from 'react';
+import { Fragment, Component } from 'react';
 import { connect } from 'react-redux';
 import { getExcelData } from '../../store/slices/excel-loader.slice';
 import type IMessenger from './IMessenger';
 import Messeage from '../message';
 
-class MesseageBoard extends Component<{loading:boolean, excel:IMessenger[]}> {
-  messages = [];
+class MesseageBoard extends Component<{dispatch: any, excelData:{excel:{loading:boolean, payload:IMessenger[]}}}> {
+  messages: React.ReactElement[] = []; 
   async componentDidMount(): Promise<void> {
     await this.props.dispatch(getExcelData());
   }

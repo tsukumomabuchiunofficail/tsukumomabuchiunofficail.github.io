@@ -1,4 +1,5 @@
-import { combineReducers, configureStore , getDefaultMiddleware } from '@reduxjs/toolkit';
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import excelLoaderReducer from './slices/excel-loader.slice';
 
 

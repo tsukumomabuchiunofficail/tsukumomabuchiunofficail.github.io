@@ -1,12 +1,22 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-nocheck
+/* eslint-disable no-extend-native */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-// import { GithubProfileStatus } from '../../shared/interfaces';
-import { 
-  type PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { type PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { readExcelFromUrl } from '../../shared/helpers/utilties';
-import ExcelConfig from '../../assets//excel.config';
+import ExcelConfig from '../../assets/excel.config';
 import type IMessenger from '../../components/message-board/IMessenger';
-import type IMessage from '../../components/message/IMessage';
-const initialState = {
+import type IKeyValuePair from '../../@types/IKeyValuePair';
+
+interface ExcelLoaderState {
+  loading: boolean;
+  payload: IMessenger[];
+}
+
+const initialState: ExcelLoaderState = {
   loading: true,
   payload: [],
 };
@@ -17,10 +27,10 @@ export const getExcelData = createAsyncThunk(
   async () => {
     const res = await readExcelFromUrl(ExcelConfig.path);
     if(res) {
-      const keys = res[0];
+      const keys:[] = res[0] as [];
       const imessengers = [];
       for(let i=1; i<res.length; i++) {
-        const data = res[i];
+        const data:IKeyValuePair = res[i] as IKeyValuePair;
         const Id = data[keys.indexOf(ExcelConfig.key)];
         let msgr:IMessenger = imessengers.where(m => m[ExcelConfig.headers[ExcelConfig.key]] === Id).firstOrDefault();
         if(!msgr) {

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import type IMessenger from '../message-board/IMessenger';
 import { ImAttachment } from "react-icons/im";
 import type IMessage from './IMessage';
@@ -33,9 +33,9 @@ class Message extends Component<IMessenger> {
     return msgs;
   }
 
-  convertSerialDate(serial) {
-    const days = Math.floor(serial);
-    const seconds = Math.round((serial - days) * 86400); // 86400 seconds in a day
+  convertSerialDate(serial: string) {
+    const days = Math.floor(Number(serial));
+    const seconds = Math.round((Number(serial) - days) * 86400); // 86400 seconds in a day
     const date = new Date(1899, 11, 30); // December 30, 1899
     date.setDate(date.getDate() + days);
     date.setSeconds(date.getSeconds() + seconds);
@@ -43,7 +43,7 @@ class Message extends Component<IMessenger> {
     return date;
   }
 
-  formatTimestamp(serial) {
+  formatTimestamp(serial: string) {
     const date = this.convertSerialDate(serial);
 
     return format(date, 'yyyy-MM-dd HH:mm:ss');
