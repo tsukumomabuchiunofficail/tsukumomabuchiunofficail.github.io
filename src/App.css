@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-body-bg bg-cover bg-center min-h-screen relative;
+}
+
+.background-overlay {
+  @apply absolute inset-0 bg-black opacity-60 z-0;
+}
+
+.App {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
