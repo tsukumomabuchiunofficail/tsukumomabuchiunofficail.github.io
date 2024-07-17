@@ -10,9 +10,12 @@ class Message extends Component<IMessenger> {
     const msgs = []
     for(let i=0; i<this.props.Messages.length;i++) {
       const msg : IMessage = this.props.Messages[i];
+      const lines = msg.Context.split('\n').map((line, index) => (
+        <span key={index}>{line}<br /></span>
+      ));
       msgs.push(
       <div className="p-4 bg-gray-100 rounded-lg shadow" key={msg.Timestamp}>
-        <p className='p-4 bg-gray-100 rounded-lg flex flex-col space-y-4 text-left'>{msg.Context}</p>
+        <p className='p-4 bg-gray-100 rounded-lg flex flex-col space-y-4 text-left'>{lines}</p>
         <span className="block text-right text-sm text-gray-500 mt-2">{this.formatTimestamp(msg.Timestamp)}</span>
       {
         msg.Attachment ?               
