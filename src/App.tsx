@@ -5,6 +5,7 @@ import Footer from "./components/footer";
 import MesseageBoard from "./components/message-board";
 import store from './store';
 import { HelmetProvider } from 'react-helmet-async';
+import Sakura from "./components/sakura";
 
 class App extends Component {
   componentDidMount() {
@@ -19,6 +20,7 @@ class App extends Component {
         <div className="relative min-h-screen flex flex-col">
           <div className="background-overlay"></div>
           <main className="relative z-10 flex-grow p-4">
+            <Sakura/>
           <MesseageBoard />
           </main>
           <Footer />
