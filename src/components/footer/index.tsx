@@ -9,7 +9,7 @@ class Footer extends Component {
         <footer className="relative z-10 p-4 bg-black bg-opacity-60 text-white">
           <div className="text-center">
             <div className="mt-2">
-            <a href="https://discord.gg/cFFJ3d4zu5" className="btn btn-primary mx-2"><FaDiscord />雪與魔界的交界處</a>
+            <a href="#" className="btn btn-primary mx-2"><FaDiscord />真淵家的貨架</a>
           <div className="mt-2">
           <p>© 2024 TsukumoMabuchi, Unoffical club and Creator `PKC`. All rights reserved.</p>
           </div>
